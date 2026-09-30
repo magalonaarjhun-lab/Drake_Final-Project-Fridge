@@ -109,10 +109,19 @@ export default function App() {
         })
       });
 
-      const data = await response.json();
+      let data = {};
+      const responseText = await response.text();
+      try {
+        data = responseText ? JSON.parse(responseText) : {};
+      } catch (parseErr) {
+        if (!response.ok) {
+          throw new Error(`Server returned error (${response.status}). Netlify Functions may still be deploying or missing environment variables.`);
+        }
+        throw new Error("Unable to parse server response. Please try again.");
+      }
 
       if (!response.ok) {
-        throw new Error(data.error || "Sorry, we couldn't generate recipes right now. Please try again.");
+        throw new Error(data.error || `Request failed with status ${response.status}.`);
       }
 
       if (data.recipes && Array.isArray(data.recipes)) {
