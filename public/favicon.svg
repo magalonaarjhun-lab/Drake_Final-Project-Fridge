@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B3FEF" />
+      <stop offset="50%" stop-color="#6C35E8" />
+      <stop offset="100%" stop-color="#C02BEA" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <!-- Background Circle -->
+  <circle cx="50" cy="50" r="46" fill="url(#purpleGrad)" filter="url(#glow)" />
+  <!-- Frying Pan Base -->
+  <ellipse cx="46" cy="50" rx="26" ry="24" fill="#1C1838" stroke="#D6B5FF" stroke-width="2.5" />
+  <!-- Pan Handle -->
+  <path d="M66 58 L84 76" stroke="#D6B5FF" stroke-width="5" stroke-linecap="round" />
+  <!-- Egg White -->
+  <path d="M38 46 C32 44, 30 52, 36 56 C40 60, 52 61, 56 55 C60 48, 54 42, 48 42 C44 42, 42 47, 38 46 Z" fill="#FFFFFF" opacity="0.95" />
+  <!-- Egg Yolk -->
+  <circle cx="45" cy="50" r="7" fill="#FFA500" stroke="#FFD700" stroke-width="1.5" />
+  <!-- Sparkles -->
+  <polygon points="30,28 32,32 36,34 32,36 30,40 28,36 24,34 28,32" fill="#FFE082" />
+</svg>
